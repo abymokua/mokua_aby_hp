@@ -1,34 +1,27 @@
 const mongoose = require('mongoose')
 
 const TicketSchema = new mongoose.Schema({
-    createdBy: {
+    company: {
         type: String,
-        required: true
+        required: true,
     }, 
-    category:{
-    type: String,
-    required: true
-    }, 
-    assignedTo:{
+    role:{
         type: String,
-        required: true
+        required: true,
     }, 
-    priority:{
-        type: String,
-        required: true
+    deadline:{
+        type: Date,
+        required: true,
     }, 
     status:{
         type: String,
-        required: true
-    }, 
-    comment:{
+        required: true,
+        default: 'Not Applied',
+        enum: ['Not Applied','Applied','Awaiting Feedback','Interview', 'Accepted','Rejected'], 
+    },
+    userId:{
         type: String,
-        required: true
-    }, 
-    timestamp:{
-        type: Date,
-        default: Date.now
-    } 
-})
-
+        required: true,
+    }
+});
 module.exports = mongoose.model('Ticket', TicketSchema)

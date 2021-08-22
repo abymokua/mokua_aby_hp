@@ -1,37 +1,50 @@
-<h1 class="mt-4">Ticket Dashboard</h1>
+<nav class="header">
+    <div class="nav-wrapper container"> 
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger show left"></a>
+        <l class="navbar" id="mobile-demo">
+            <ul><i class="fas fa-yin-yang fa-2x"></i></ul>
+            <ul><a href="/dashboard"> Dashboard </a></ul>
+            <ul><a href="/tickets"> New Application</a></ul>
+            <ul><a href="/session"> Book A Session!</a></ul>
+            <ul><a href="/opportunity"> Opportunity Board </a></ul>
+            <ul><a href="/users/logout"> Logout</a></ul>     
+    </div>
+</nav>
+
+<h1 class="mt-1">Dashboard</h1>
     <table class="table"> 
         <thead>
             <tr>
-                <th>CreatedBy</th>
-                <th>Category</th>
-                <th>AssignedTo</th>
-                <th>Priority</th>
-                <th>Status</th>
-                <th>Comment</th>
-                <th>Timestamp</th>
-
-                <th></th>
+                <th>Company</th>
+                <th>Role</th>
+                <th>Application Status</th>
+                <th>Deadline</th>
             </tr>
         </thead>
         <tbody>
+            <% tickets.forEach(function (ticket) { %>
             <tr>
-                <td>Aby</td>
-                <td>Development</td>
-                <td>Aby</td>
-                <td>Medium</td>
-                <td>Open</td>
-                <td>Look at my comment</td>
-                <td></td>
+                <td><%= ticket.company %></td>
+                <td><%= ticket.role %></td>
+                <td><%= ticket.status %></td>
+                <td><%= ticket.deadline%></td>
                 <td><span class ="dash-status"> </span></td>
                 <td>
                     <a href="/ticket/edit/" class="btn btn-float">
                     <i class="fas fa-edit fa-size"></i>
-                    </a>
-                    
+                    </a> 
+                    <form action = "/tickets/{{_id}}" method="POST" id="delete"> <input type = "hidden" name = "_method" value="DELETE">
+                        <button type= "submit" class = "btn btn-float btn-delete">
+                            <i class="fas fa-trash fa-size"></i>
+                        </button>
+                        
+                    </form>
                 </td>
             </tr>
+            <% }) %>
+           
         </tbody>
     </table>
+    <a href="tickets" class="btn btn-secondary float-right"><i class="fas fa-plus fa-3x"></i></a><br>
 
-    <a href="tickets" class="btn btn-secondary"> Create Ticket</a>
-    <a href="/users/logout" class="btn btn-secondary">Logout</a>
+    

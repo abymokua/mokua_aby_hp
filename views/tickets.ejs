@@ -1,79 +1,64 @@
-<div class="row mt-5">
+<nav class="header">
+  <div class="nav-wrapper container"> 
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger show left"></a>
+      <l class="navbar" id="mobile-demo">
+          <ul><i class="fas fa-yin-yang fa-2x"></i></ul>
+          <ul><a href="/dashboard"> Dashboard </a></ul>
+          <ul><a href="/tickets"> New Application</a></ul>
+          <ul><a href="/session"> Book A Session!</a></ul>
+          <ul><a href="/opportunity"> Opportunity Board </a></ul>
+          <ul><a href="/users/logout"> Logout</a></ul>
+  </div>
+  </nav>
+
+  <div class="row mt-5">
     <div class="col-md-6 m-auto">
       <div class="card card-body">
-        <h1 class="text-center mb-3">Create Ticket</h1>
-        <form action="users/tickets" method="POST">
-          <div class="form-group">
-            <label for="category">Category</label>
-            <input
-              type="text"
-              id="category"
-              name="category"
-              class="form-control"
-              placeholder="Development or Testing or Production"
-              value="<%= typeof category != 'undefined' ? category : '' %>"
-            />
-          </div>
-          <div class="form-group">
-            <label for="createdby">Created By</label>
-            <input
-              type="name"
-              id="creatdBy"
-              name="createdBy"
-              class="form-control"
-              placeholder="Name"
-              value="<%= typeof createdBy != 'undefined' ? createdBy : '' %>"
-            />
-          </div>
-          <div class="form-group">
-            <label for="assignedTo">Assigned To</label>
-            <input
-              type="name"
-              id="assignedTo"
-              name="assignedTo"
-              class="form-control"
-              placeholder="Name"
-              value="<%= typeof assignedTo != 'undefined' ? assignedTo : '' %>"
-            />
-          </div>
-          <div class="form-group">
-            <label for="priority">Priority</label>
-            <input
-              type="text"
-              id="priority"
-              name="priority"
-              class="form-control"
-              placeholder="High or Low or Medium"
-              value="<%= typeof priority != 'undefined' ? priority : '' %>"
-            />
-          </div>
-          <div class="form-group">
-            <label for="status">Status</label>
-            <input
-              type="text"
-              id="status"
-              name="status"
-              class="form-control"
-              placeholder="Open or Closed or Resolved"
-              value="<%= typeof status != 'undefined' ? status : '' %>"
-            />
-          </div>
-          <div class="form-group">
-            <label for="comment">Comment</label>
-            <input
-              type="text"
-              id="comment"
-              name="comment"
-              class="form-control"
-              placeholder="Add Comment"
-              value="<%= typeof comment != 'undefined' ? comment : '' %>"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">
-            Create
-          </button>
-        </form>
-        <p class="text-center lead mt-4"><a href="/dashboard">Back</a></p>
-      </div>
+        <h1 class="text-center"><i class="fas fa-yin-yang fa-2x"></i></h1>
+        <h1 class="text-center mb-3">New Application</h1>
+
+<div class="form-group">
+    <form action = "/tickets" method="POST" class="col s12">
+    <div class = "form-group">
+        <div class="input-field">
+            <label for="company"> Company </label>
+            <input type="text" id="company" name="company" class="form-control" placeholder="" value="<%= typeof name != 'undefined' ? name : '' %>">
+        </div>
     </div>
-  </div>
+    <div class = "form-group">
+        <div class="input-field">
+            <label for="role"> Role </label>
+            <input type="text" id="role" name="role" class="form-control" placeholder="" value="<%= typeof priority != 'undefined' ? priority : '' %>">
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class="input-field">
+            <label for="deadline">Deadline</label>
+            <input type="Date" id="deadline" name="deadline" class="form-control" placeholder="Date" value="<%= typeof priority != 'undefined' ? priority : '' %>">
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class="input-field">
+            <label for="status">Status</label> 
+            <select id="status" name="status" class="form-control" placeholder="" value="<%= typeof priority != 'undefined' ? priority : '' %>">
+            <option value="not applied" selected>Not Applied</option>
+            <option value="applied">Applied</option>   
+            <option value="awaiting feedback">Awaiting feedback</option>  
+            <option value="interview">Interview</option>  
+            <option value="accepted">Accepted</option>  
+            <option value="rejected">Rejected</option>  
+            </select>  
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" value="Save" class="btn btn-primary btn-block">
+        <a href="/dashboard" class="btn btn-block"> Back </a>
+    </div>
+    
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+
+</div>

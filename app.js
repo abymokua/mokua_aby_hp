@@ -6,6 +6,7 @@ const session = require ('express-session')
 const passport = require ('passport')
 
 const app = express()
+
 //passport config
 require('./config/passport')(passport)
 
@@ -25,7 +26,7 @@ app.use(session({
     secret: 'banana',
     resave: true,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { secure: false }
   }))
 
   //passport middleware

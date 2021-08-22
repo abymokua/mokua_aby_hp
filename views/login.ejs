@@ -1,8 +1,11 @@
 <div class="row mt-5">
     <div class="col-md-6 m-auto">
       <div class="card card-body">
+        <h1 class="text-center"><i class="fas fa-yin-yang fa-3x"></i></h1>
         <h1 class="text-center mb-3">Login</h1>
-        <%- include('./partials/messages'); %>
+
+        <%- include('./partials/messages.ejs')%>
+        
         <form action="/users/login" method="POST">
           <div class="form-group">
             <label for="email">Email</label>
@@ -24,7 +27,7 @@
               placeholder="Password"
             />
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <button type="submit"class="btn btn-primary btn-block">Login</button>
         </form>
         <p class="lead mt-4"><a href="/users/register">Register</a>
         </p>
